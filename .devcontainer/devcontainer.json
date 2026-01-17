@@ -1,19 +1,18 @@
 {
-  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-        "installZsh": true,
-        "configureZshAsDefaultShell": true,
-        "installOhMyZsh": true
+    "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
     },
-    "ghcr.io/devcontainers/features/sshd:1": {}
-  },
-  "forwardPorts": [2222],
-  "appPort": [2222],
-  "containerUser": "ubuntu",
-  "remoteUser": "ubuntu"
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true
+        },
+        "ghcr.io/devcontainers/features/sshd:1": {}
+    },
+    "forwardPorts": [2222],
+    "appPort": [2222],
+    "containerUser": "ubuntu"
 }
