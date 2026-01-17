@@ -5,6 +5,11 @@
     "context": "."
   },
   "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+        "installZsh": true,
+        "configureZshAsDefaultShell": true,
+        "installOhMyZsh": true
+    },
     "ghcr.io/devcontainers/features/sshd:1": {}
   },
   "forwardPorts": [2222],

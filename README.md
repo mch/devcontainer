@@ -11,6 +11,13 @@ devcontainer build --workspace-folder .
 devcontainer up --workspace-folder .
 ```
 
+### Execute a command in the running devcontainer
+```shell
+devcontainer exec --workspace-folder . zsh
+```
+There seems to be a bug that prevents `devcontainer --workspace-folder . exec zsh` from working, devcontainer CLI 0.81.1.
+
+## Docker commands
 ### Find the devcontainer for the current directory
 ```shell
 docker ps --filter "label=devcontainer.local_folder=$(pwd)"
@@ -23,5 +30,5 @@ docker stop $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q)
 
 ### Remove the devcontainer for the current directory
 ```shell
-docker stop $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q) | xargs docker rm
+docker ps -a --filter "label=devcontainer.local_folder=$(pwd)" -q | xargs docker rm
 ```
