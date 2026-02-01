@@ -8,14 +8,14 @@ run = "devcontainer build --workspace-folder ."
 [tasks.up]
 run = "devcontainer up --workspace-folder ."
 
-[tasks.zsh]
+[tasks.sh]
 run = "devcontainer exec --workspace-folder . zsh"
 
 [tasks.container-id]
-run = "docker ps --filter 'label=devcontainer.local_folder=/Users/mch/Work/devcontainer'"
+run = "docker ps --filter 'label=devcontainer.local_folder=/Users/mch/Work/devcontainer' -a -q"
 
 [tasks.stop]
 run = "docker stop $(docker ps --filter \"label=devcontainer.local_folder=$(pwd)\" -q)"
 
 [tasks.rm]
-run = "docker rm $(docker ps --filter \"label=devcontainer.local_folder=$(pwd)\" -q -a)"
+run = "export CONTAINER=$(docker ps --filter \"label=devcontainer.local_folder=$(pwd)\" -q -a --no-trunc) && docker rm $CONTAINER && docker volume rm bashhistory-${CONTAINER}"

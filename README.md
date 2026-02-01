@@ -28,6 +28,10 @@ mise run zsh
 Finally, you can stop and remove the container:
 ```shell
 mise run stop
+```
+
+If you want you can remove the container and the volume it stores it's command history in, but it's better to keep it around:
+```shell
 mise run rm
 ```
 
