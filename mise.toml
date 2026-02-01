@@ -8,6 +8,9 @@ run = "devcontainer build --workspace-folder ."
 [tasks.up]
 run = "devcontainer up --workspace-folder ."
 
+[tasks.up2]
+run = "devcontainer up --workspace-folder . --dotfiles-repository https://github.com/mchbot/dotfiles"
+
 [tasks.sh]
 run = "devcontainer exec --workspace-folder . zsh"
 
