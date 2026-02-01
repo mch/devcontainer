@@ -15,7 +15,7 @@ run = "devcontainer exec --workspace-folder . zsh"
 run = "docker ps --filter 'label=devcontainer.local_folder=/Users/mch/Work/devcontainer'"
 
 [tasks.stop]
-run = "docker stop $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q)"
+run = "docker stop $(docker ps --filter \"label=devcontainer.local_folder=$(pwd)\" -q)"
 
 [tasks.rm]
-run = "docker rm $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q)"
+run = "docker rm $(docker ps --filter \"label=devcontainer.local_folder=$(pwd)\" -q -a)"
