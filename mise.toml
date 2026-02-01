@@ -1,3 +1,21 @@
 [tools]
 node = "24"
 "npm:@devcontainers/cli" = "latest"
+
+[tasks.build]
+run = "devcontainer build --workspace-folder ."
+
+[tasks.up]
+run = "devcontainer up --workspace-folder ."
+
+[tasks.zsh]
+run = "devcontainer exec --workspace-folder . zsh"
+
+[tasks.container-id]
+run = "docker ps --filter 'label=devcontainer.local_folder=/Users/mch/Work/devcontainer'"
+
+[tasks.stop]
+run = "docker stop $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q)"
+
+[tasks.rm]
+run = "docker rm $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q)"

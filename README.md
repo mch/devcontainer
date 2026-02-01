@@ -4,31 +4,30 @@ This is my personal devcontainer set up with the languages and so on that I typi
 
 ## Getting Started
 
+mise is used to install the devcontainer CLI tool and to make it easier to run tasks with it.
+
 Install mise: https://mise.jdx.dev/getting-started.html
 
+Then, build the devcontainer:
 ```shell
-devcontainer build --workspace-folder .
-devcontainer up --workspace-folder .
+mise run build
 ```
 
-### Execute a command in the running devcontainer
+Start the devcontainer:
 ```shell
-devcontainer exec --workspace-folder . zsh
-```
-There seems to be a bug that prevents `devcontainer --workspace-folder . exec zsh` from working, devcontainer CLI 0.81.1.
-
-## Docker commands
-### Find the devcontainer for the current directory
-```shell
-docker ps --filter "label=devcontainer.local_folder=$(pwd)"
+mise run up
 ```
 
-### Stop the devcontainer for the current directory
+At this point you should be able to connect to the running devcontainer with editors like VS Code and Zed.
+
+You can also get a shell in the devcontainer:
 ```shell
-docker stop $(docker ps --filter "label=devcontainer.local_folder=$(pwd)" -q)
+mise run zsh
 ```
 
-### Remove the devcontainer for the current directory
+Finally, you can stop and remove the container:
 ```shell
-docker ps -a --filter "label=devcontainer.local_folder=$(pwd)" -q | xargs docker rm
+mise run stop
+mise run rm
 ```
+
