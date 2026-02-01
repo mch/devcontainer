@@ -1,18 +1,23 @@
 {
-    "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": "."
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.base.schema.json",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".",
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true,
     },
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": true,
-            "configureZshAsDefaultShell": true,
-            "installOhMyZsh": true
-        },
-        "ghcr.io/devcontainers/features/sshd:1": {}
-    },
-    "forwardPorts": [2222],
-    "appPort": [2222],
-    "containerUser": "ubuntu"
+    // "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers-extra/features/mise:1": {},
+    "ghcr.io/devcontainers-extra/features/opencode:1": {},
+  },
+  "forwardPorts": [2222],
+  "appPort": [2222],
+  "containerUser": "ubuntu",
+  "mounts": [
+    "source=bashhistory-${devcontainerId},target=/commandhistory,type=volume",
+  ],
 }
